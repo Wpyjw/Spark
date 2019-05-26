@@ -1,0 +1,59 @@
+Spark 扩充了流行的Mapreduce计算模型  基于内存的计算 批处理 迭代式计算 交互查询和流处理
+最初是基于Hadoop Mapreduce的，发现Mapreduce在迭代式计算和交互式上低效，引入了内存存储
+Spark Core:
+    包含Spark 的基本功能，包括任务调度、内存管理、容错机制等。
+    内部定义了RDDs（弹性分布式数据集）
+    提供了很多APIs来创建和操作这些RDDs
+    应用场景，为其他组件提供底层的服务。
+Spark SQL
+Spark Streaming 是实时数据流处理组件
+Mlib：一个包含通用机器学习功能的包，都支持集群上的横向扩展
+Graphx：处理图的，进行图的并行计算。
+
+紧密集成的优点：Spark底层优化了，基于Spark底层的组件，也得到了相应的优化。
+紧密集成，计生了各个组件组合使用时的部署、测试等时间。
+向Spark增加新的组件时，其他组件，可立刻享用新组件的功能。
+
+                    Spark                  Hadoop
+应用场景：        时效性要求高的场景       离线处理，对时效性要求不高
+机器学习等领域    适合迭代场景       
+
+Spark不具有HDFS的存储能力，要借助HDFS存储数据。
+Spark是Scala写的，运行在JVM上 
+
+spark的运行环境：
+    基于Scala ,运行在JVM，运行环境Java7+
+spark下载：
+    搭建spark不需要Hadoop，下载后解压
+    虚拟机（Linux）联网状态下，通过  wget+下载链接
+    Linux解压命令  tar -zxvf spark
+    
+    
+    
+Spark 目录：包含用来和Spark交互的可执行文件,如Spark shell
+
+linux 自动补全 TAB
+ll 看文件夹中的文件的详细信息
+
+Spark的Shell使你能够处理分布在集群上的数据 
+Spark 把数据加载到节点的内存中，因此分布式处理可在秒级完成。
+Python Shell: bin/pyspark
+
+
+
+Hadoop
+MapReduce是一种编程模型，是一种编程方法，是抽象的理论
+YARN Hadoop2.0后的资源管理器  ResourceManager 
+MapReduce编程模型
+输入一个大文件，通过Split之后，将其分为多个分片
+每个文件分片由单独的机器去处理，这就是Map方法
+将各个机器计算的结果进行汇总并得到最终的结果 Reduce方法
+
+
+
+sudo
+
+java jdk 下载和安装 1. 进入www.sun.com 下载jdk
+
+
+Map 在映射器中用户提供的代码称为中间对。对于键值的具体定义是慎重的，因为定义对于分布式任务的完成具有重要意义.键决定了数据分类的依据，而值决定了处理器中的分析信息.本书的设计模式将会展示大量细节来解释特定键值如何选择.
