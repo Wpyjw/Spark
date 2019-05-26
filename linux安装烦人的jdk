@@ -1,0 +1,13 @@
+https://www.jianshu.com/p/03c01edd034a
+1.下载jdk，使用XSHELL将文件传输到Linux上
+2.建立/usr/java,在里面解压jdk
+tar -zxvf jdk.gz.tar
+3.vim /etc/profile
+4.在末尾添加配置export JAVA_HOME=/usr/jdk 
+              export CLASSPATH=.:$JAVA_HOME/lib/
+              export PATH=$PATH:$JAVA_HOME/bin
+              export JAVA_HOME PATH CLASSPATH
+              保存退出  ESC   shift+zz
+5.加载配置信息  source /etc/profile
+6.查看java配置是否完成 
+java -version
